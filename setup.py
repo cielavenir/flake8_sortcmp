@@ -17,7 +17,7 @@ setup(
     author_email='cielartisan@gmail.com',
     packages=['flake8_sortcmp'],
     keywords='flake8',
-    entry_points={'flake8.extension': ['STC01 = flake8_sortcmp.checker:GettextChecker']},
+    entry_points={'flake8.extension': ['STC01 = flake8_sortcmp.checker:SortcmpChecker']},
     zip_safe=False,
     # include_package_data=True,
     platforms='any',
