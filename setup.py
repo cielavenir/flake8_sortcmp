@@ -7,7 +7,7 @@ import sys
 
 setup(
     name='flake8_sortcmp',
-    description='flake8_sortcmp',
+    description='flake8 plugin to warn sort(cmp=)',
     long_description=open("README.md").read(),
     long_description_content_type='text/markdown',
     version=versionContext['__version__'],
