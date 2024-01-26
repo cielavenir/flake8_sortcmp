@@ -1,8 +1,8 @@
 from .version import __version__
 from ast import walk, Call, Name, List, Attribute
 
-STC010 = "STC010 sorted(list, cmp=cmp) needs to migrate to sorted(list, key=functools.cmp_to_key(cmp))"
-STC011 = "STC011 list.sort(cmp=cmp) needs to migrate to list.sort(key=functools.cmp_to_key(cmp))"
+STC010 = "STC010 sorted(list, cmp=cmp) needs to be migrated to sorted(list, key=functools.cmp_to_key(cmp))"
+STC011 = "STC011 list.sort(cmp=cmp) needs to be migrated to list.sort(key=functools.cmp_to_key(cmp))"
 
 class SortcmpChecker(object):
     name = 'flake8_sortcmp'
