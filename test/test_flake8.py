@@ -46,3 +46,43 @@ def test_sort():
     violations = list(SortcmpChecker(tree).run())
     assert len(violations) == 1
     assert violations[0][2].startswith('STC011 ')
+
+def test_attribute1_sorted():
+    tree = parse('''
+class A:
+    l = [2, 1]
+sorted(A.l, cmp=lambda a,b: a-b)
+''')
+    violations = list(SortcmpChecker(tree).run())
+    assert len(violations) == 1
+    assert violations[0][2].startswith('STC010 ')
+
+def test_attribute1_sort():
+    tree = parse('''
+class A:
+    l = [2, 1]
+A.l.sort(cmp=lambda a,b: a-b)
+''')
+    violations = list(SortcmpChecker(tree).run())
+    assert len(violations) == 1
+    assert violations[0][2].startswith('STC011 ')
+
+def test_attribute2_sorted():
+    tree = parse('''
+class A:
+    l = [2, 1]
+sorted(A().l, cmp=lambda a,b: a-b)
+''')
+    violations = list(SortcmpChecker(tree).run())
+    assert len(violations) == 1
+    assert violations[0][2].startswith('STC010 ')
+
+def test_attribute2_sort():
+    tree = parse('''
+class A:
+    l = [2, 1]
+A().l.sort(cmp=lambda a,b: a-b)
+''')
+    violations = list(SortcmpChecker(tree).run())
+    assert len(violations) == 1
+    assert violations[0][2].startswith('STC011 ')
