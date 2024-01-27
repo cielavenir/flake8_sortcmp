@@ -17,7 +17,7 @@ class SortcmpChecker(object):
                 continue
             if isinstance(node.func, Name) and node.func.id in ('sorted',):
                 flake8warn = STC010
-            elif isinstance(node.func, Attribute) and isinstance(node.func.value, (Name, List)) and node.func.attr in ('sort',):
+            elif isinstance(node.func, Attribute) and isinstance(node.func.value, (Name, Attribute, List)) and node.func.attr in ('sort',):
                 flake8warn = STC011
             else:
                 continue
